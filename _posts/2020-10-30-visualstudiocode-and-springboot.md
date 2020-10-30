@@ -43,8 +43,7 @@ image: "./documents/title.png"
 
 ##### 3.1 Sample Entity 생성
 
-{% highlight java%}
-```java
+~~~java
 package me.potato.demo.demospringboot.sample;
 
 import javax.persistence.Entity;
@@ -69,8 +68,7 @@ public class Sample {
     private Long id;
     private String data;
 }
-```
-{% endhighlight %}
+~~~
 
 ##### 3.2 SampleRepository 생성
 

@@ -3,7 +3,7 @@ title:              Harvest
 bio:                'male'
 description:        "a rolling Potato's"
 locale:             ko_KR
-baseurl: "blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://potatowhite.github.io" # the base hostname & protocol for your site
 
 # Comments
@@ -43,6 +43,8 @@ kramdown:
   entity_output:    as_char
   toc_levels:       1..6
   enable_coderay:   true
+  syntax_highlighter: rouge
+    
 mathjax:            true
 sass:
   sass_dir:         _sass
