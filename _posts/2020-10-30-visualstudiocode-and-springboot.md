@@ -2,7 +2,7 @@
 layout: post
 title:  "Visual Studio Code + Springboot 개발환경"
 date:   2020-10-30
-excerpt: "무료 도구인 Visual Studio Code를 이용한 개발 환경 구성"
+excerpt: "https://github.com/cloudReactorCell/demo-springboot-vscode"
 # image: "/images/pic02.jpg"
 ---
 
