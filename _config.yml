@@ -4,7 +4,7 @@ bio:                'male'
 description:        "a rolling Potato's"
 locale:             ko_KR
 baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "http://potatowhite.github.io" # the base hostname & protocol for your site
+url: "https://potatowhite.github.io" # the base hostname & protocol for your site
 
 # Comments
 disqus_shortname:   default
