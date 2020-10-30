@@ -17,8 +17,6 @@ instagram:          default
 github:             default
 
 # personal
-# location:           Republic of Korea
-# phone:              310-318-5555
 email:              bravopotato@gmail.com # change this to your email to receive free emails for your contact submissions via Slapform.com
 
 # Other
@@ -44,7 +42,7 @@ kramdown:
   footnote_nr:      1
   entity_output:    as_char
   toc_levels:       1..6
-  enable_coderay:   false
+  enable_coderay:   true
 mathjax:            true
 sass:
   sass_dir:         _sass
