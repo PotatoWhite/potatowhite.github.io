@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Visual Studio Code + Springboot 개발환경"
+title:  "Springboot 개발환경(VS Code)"
 date:   2020-10-30
-excerpt: "https://github.com/cloudReactorCell/demo-springboot-vscode"
-# image: "/images/pic02.jpg"
+excerpt: "VS Code를 기준으로 Springboot 개발환경 구성"
+image: "./documents/title.png"
 ---
 
 ### VS Code 기반의 개발환경 구성
