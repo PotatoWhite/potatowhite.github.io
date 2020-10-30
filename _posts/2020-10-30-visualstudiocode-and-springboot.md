@@ -43,6 +43,7 @@ image: "./documents/title.png"
 
 ##### 3.1 Sample Entity 생성
 
+{% highlight java%}
 ```java
 package me.potato.demo.demospringboot.sample;
 
@@ -69,6 +70,7 @@ public class Sample {
     private String data;
 }
 ```
+{% endhighlight %}
 
 ##### 3.2 SampleRepository 생성
 
