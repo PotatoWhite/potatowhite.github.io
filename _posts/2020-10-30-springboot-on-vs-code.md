@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Springboot 개발환경(VS Code)"
+title:  "Springboot on VS Code"
 date:   2020-10-30
-excerpt: "VS Code를 기준으로 Springboot 개발환경 구성"
-image: "./documents/title.png"
+excerpt: "Restful API 및 Fegin Client를 통한 간단한 실습 예제"
+image: "/images/posts/2020-10-30-springboot-on-vs-code/title.png"
 ---
 
-### VS Code 기반의 개발환경 구성
+## VS Code 기반의 개발환경 구성
 
 - 목표 : Microsoft사의 Visual Studio Code 기반의 개발환경 구성 및 사용법을 위한 Springboot기반의 Sample Application 개발
 
@@ -18,7 +18,7 @@ image: "./documents/title.png"
 
 ##### 1.1 Plugins
 
-![plugin목록](./documents/create00.png){:class="image main"}
+![plugin목록](/images/posts/2020-10-30-springboot-on-vs-code/create00.png){:class="image fit"}
 
 - 아래 Plugin 설치시 의존성이 있는 여러 Plugin이 함께 설치 된다.
   - Java Extension Pack
@@ -37,7 +37,7 @@ image: "./documents/title.png"
 5. Artifact Id: demo-springboot 입력
 6. 사용할 의존성 선택 : Lombok, Spring Web, Rest Repository, H2, JPA, OpenFeign
 
-![의존성목록](./documents/create05.png){:class="image main"}
+![의존성목록](/images/posts/2020-10-30-springboot-on-vs-code/create05.png){:class="image fit"}
 
 #### 3. Model 생성
 
