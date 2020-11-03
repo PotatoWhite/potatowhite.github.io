@@ -11,11 +11,13 @@ image: ""
 - Gradle Multi Module 생성, Restful API Server실습, Client를 이용한 Restful API 호출
 
 ## 사유
- 단지 Restful API가 아니더라도, Client-Server의 관점에서 살펴볼 때 Server는 Client의 대리자입니다. 이는 Server가 Client의 할일을 위임 받는 것이고, Cient의 요구에 따라 Server의 규격이 변경되겠지만, 현실에서 다수(단지 양을 이야기하는 것이 아님)의 Client를 Server가 처리할 때는 연동 규격의 변경을 위해 다수의 Client가 재개발 되어야 하는 상황이 있을 수 있습니다.  
+ 단지 Restful API가 아니더라도, Client-Server의 관점에서 살펴볼 때 Server는 Client의 대리자입니다. 이는 Server가 Client의 할일을 위임 받는 것이고, Cient의 요구에 따라 Server의 규격이 변경되겠지만, 현실에서 다수(단지 양을 이야기하는 것이 아님)의 Client를 Server가 처리할 때는 연동 규격의 변경은 Client들을 재개발 시킬 수 있습니다.
 
- 예를 들어 카카오톡 등의 메신저 로그인을 위한 API 변경이 발생하였을 때 카카오톡 메신저, 카카오택시 등 다수의 Client가 변경되어야 합니다.
+ 예를 들어 카카오톡 등의 메신저 로그인을 위한 API 변경이 발생하였을 때 카카오톡 메신저, 카카오택시 등 다수의 Client가 변경되어야 합니다. 이를 이용하는 3rd Party App들은 말 할 것도 없지요.
 
- 만일 Server에서 API 외 Client Module까지 제공한다면 조금 더 낳은 유연성을 가져갈 수 있다고 생각합니다. 조금 Old Fashion이긴 Server 자신을 호출하는 Lib를 배포하여 사용하게 하면 Client는 조금 쉬운방법(?)으로 연동을 할 수 있을 것이고, 실습 내용은 Server가 Restful API와 관련 DTO, 호출할 수 있는 Client모듈을 제공하고, DTO + Client 모듈을 Nexus를 통해 제공하는 예제를 진행합니다.
+ 만일 Server에서 API를 개발할 때 Client Module까지 만들어서 제공한다면.. 이라 한다면 많은 서버개발자들의 원망을 살 수 있겠지만, 그리 어려운 일은 아닙니다. 약간의 수고스러움을 더한다면 유연성 확보할 수 있습니다. 조금 Old Fashion이긴 Server 자신을 호출하는 Lib를 배포하여 사용하게 하면 Client는 조금 쉬운방법(?)으로 연동을 할 수 있을 것 입니다. 프로젝트에서 사용할 Nexus가 있다면 프로젝트에 활력을 넣을 수 있습니다. 
+ 
+ 본 실습 내용은 Server가 Restful API와 관련 DTO, 호출할 수 있는 Client모듈을 제공하고, DTO + Client 모듈을 Nexus를 통해 제공하는 예제를 진행합니다.
 
 
 ## 0. 사전환경
