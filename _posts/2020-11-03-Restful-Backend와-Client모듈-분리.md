@@ -8,17 +8,53 @@ image: ""
 
 ## 목표
 
-- Gradle Multi Module 생성, Restful API Server실습, Client를 이용한 Restful API 호출
+- Gradle Multi Module 생성, RESTful API Server실습, Client를 이용한 RESTful API 호출
 
 ## 사유
- 단지 Restful API가 아니더라도, Client-Server의 관점에서 살펴볼 때 Server는 Client의 대리자입니다. 이는 Server가 Client의 할일을 위임 받는 것이고, Cient의 요구에 따라 Server의 규격이 변경되겠지만, 현실에서 다수(단지 양을 이야기하는 것이 아님)의 Client를 Server가 처리할 때는 연동 규격의 변경은 Client들을 재개발 시킬 수 있습니다.
+단지 RESTful API가 아니더라도, Client-Server의 관점에서 살펴볼 때 Server는 Client의 대리자입니다. 이는 Server가 Client의 할일을 위임 받는 것이고, Cient의 요구에 따라 Server의 규격이 변경되겠지만, 현실에서 다수(단지 양을 이야기하는 것이 아님)의 Client를 Server가 처리할 때는 연동 규격의 변경은 Client들을 재개발 시킬 수 있습니다.
 
- 예를 들어 카카오톡 등의 메신저 로그인을 위한 API 변경이 발생하였을 때 카카오톡 메신저, 카카오택시 등 다수의 Client가 변경되어야 합니다. 이를 이용하는 3rd Party App들은 말 할 것도 없지요.
+Server는 Client가 할일(Job)을 위임하는 대리자 입니다. Server가 Job을 수행할 때 필요한 최소한의 정보가 있습니다. 이 정보가 문맥에 따라서  Parameter 또는 Form이라고 불리웁니다.
 
- 만일 Server에서 API를 개발할 때 Client Module까지 만들어서 제공한다면.. 이라 한다면 많은 서버개발자들의 원망을 살 수 있겠지만, 그리 어려운 일은 아닙니다. 약간의 수고스러움을 더한다면 유연성 확보할 수 있습니다. 조금 Old Fashion이긴 Server 자신을 호출하는 Lib를 배포하여 사용하게 하면 Client는 조금 쉬운방법(?)으로 연동을 할 수 있을 것 입니다. 프로젝트에서 사용할 Nexus가 있다면 프로젝트에 활력을 넣을 수 있습니다. 
+예를 들어 Potato라는 계정을 사용하는 사용자가 차 한잔 주세요. 라는 요청이 있습니다.
+
+```java
+Client potato = new Client();
+Server server = new Server();
+
+Tea tea = server.getATea();
+potato.addTea(tea);
+```
+
+위 상황에서 potato는 Tea의 내용이 어떻든 일단 하나 받습니다. 추가적으로 만일 potato가 Tea 종류를 녹차나 홍차를 골라서 주문한다면 다음과 같이 표현됩니다.
+
+
+```java
+Client potato = new Client();
+Server server = new Server();
+
+Tea tea = server.getATea(TypeOfTea.GREEN);
+potato.addTea(tea);
+```
+
+추가적으로 getATea를 호출할떄 enum 형식의 GREEN을 함께 호출합니다. 이러한 동작이 하나의 Application내에서 일어나는 일이라면 TypeOfTea 또는 Tea 모두 큰일 아닐 수 있습니다. 
+
+하지만 이러한 주문이 네트워크를 타고 날아드는 호출에 Server가 약 수십 종의 Microservice에서 사용된다면? 예제의 Tea와 TypeOfTea는 네트워크를 타고 전달되어야 하므로 Application에서 미리 해당 규격이 공유되어야 합니다.
+
+협업도구를 사용한다면 그나마 다행이겠지만 연동규격서를 이메일로 보내고, 각 연동 지점마다 들어오는 문의사항 응대에... 
+실제 작업이 크지 않더라도 하나의 작은 기능 배포를 위해 배보다 배꼽이 큰일을 우리는 종종 격을 수 있습니다. 이는 요즘 그렇게 중요하다는 시스템의 Agility를 떨어 뜨리고 새로운 비즈니스도 전개 느릴수 밖에 없습니다.
+
+예를 들어 카카오톡 등의 메신저 로그인을 위한 API 변경이 발생하였을 때 카카오톡 메신저, 카카오택시 등 다수의 Client가 변경되어야 합니다. 이를 이용하는 3rd Party App들은 말 할 것도 없지요.
+
+만일 Server에서 API를 개발할 때 Client Module까지 만들어서 제공한다면.. 이라 한다면 많은 서버개발자들의 원망을 살 수 있겠지만, 그리 어려운 일은 아닙니다. 약간의 수고스러움을 더한다면 유연성 확보할 수 있습니다. 조금 Old Fashion이긴 Server 자신을 호출하는 Lib를 배포하여 사용하게 하면 Client는 조금 쉬운방법(?)으로 연동을 할 수 있을 것 입니다. 프로젝트에서 사용할 Nexus가 있다면 프로젝트에 활력을 넣을 수 있습니다. 
  
- 본 실습 내용은 Server가 Restful API와 관련 DTO, 호출할 수 있는 Client모듈을 제공하고, DTO + Client 모듈을 Nexus를 통해 제공하는 예제를 진행합니다.
+본 실습 내용은 Server가 RESTful API와 관련 DTO, 호출할 수 있는 Client모듈을 제공하고, DTO + Client 모듈을 Nexus를 통해 제공하는 예제를 진행합니다.
 
+## 실습 설명
+
+1. Gradle을 이용하 Client와 Server가 분리된 프로젝트 환경을 만들고
+2. Server를 구현하고
+3. Client를 구현하고 Nexus에 Upload 
+4. Test룔 Application을 만들어 Nexus에 있는 Cient를 받아서 호출해 본다. 
 
 ## 0. 사전환경
 
@@ -256,3 +292,8 @@ BUILD SUCCESSFUL in 7s
 2020-11-03 20:15:01.222  INFO 54490 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2020-11-03 20:15:01.231  INFO 54490 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 ```
+
+
+### 2. Client-Server 간의 동작의 형식화
+
+

@@ -2,7 +2,7 @@
 layout: post
 title:  "Springboot on VS Code"
 date:   2020-10-30
-excerpt: "Restful API 및 Fegin Client를 통한 간단한 실습 예제"
+excerpt: "RESTful API 및 Fegin Client를 통한 간단한 실습 예제"
 image: "/images/posts/2020-10-30-springboot-on-vs-code/title.png"
 ---
 
@@ -72,7 +72,7 @@ public class Sample {
 
 ##### 3.2 SampleRepository 생성
 
-Restful API를 expose하기 위해서 @RestResource Annotation을 추가한다.
+RESTful API를 expose하기 위해서 @RestResource Annotation을 추가한다.
 
 ```java
 package me.potato.demo.demospringboot.sample;
